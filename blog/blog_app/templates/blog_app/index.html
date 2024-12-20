@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section class="mb-5">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    {% for slide in slides %}
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <img style="height: 600px" ;
+                                 src="{{ slide.photo.url }}"
+                                 class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ slide.title }}</h5>
+                                <p>{{ slide.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <section class="mg-5">
+            <h2 class="text-center mb-5">Задачи</h2>
+            <div class="row row-gap-4">
+                {% for todos in todo %}
+                    <div class="col-3">
+                        {% include 'components/_card-item.html' %}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+
+        </section>
+
+    </div>
+{% endblock %}

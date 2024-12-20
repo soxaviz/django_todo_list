@@ -1,0 +1,34 @@
+<div class="card">
+    {% if todos.preview %}
+        <img src="{{ todos.preview.url }}" class="card-img-top" alt="...">
+    {% else %}
+        <img src="data:image/png;base64,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"
+             class="card-img-top" alt="...">
+    {% endif %}
+    <div class="card-body">
+        <h5 class="card-title">{{ todos.name }}</h5>
+        <p class="card-text">{{ todos.short_description }}</p>
+    </div>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <b>Просмотры: </b>{{ todos.views }}
+        </li>
+        <li class="list-group-item">
+            <b>Опубликовано: </b><br>{{ todos.created_at }}
+        </li>
+        <li class="list-group-item">
+            <b>Автор: </b><br>{{ todos.author }}
+        </li>
+        {% if request.path == '/' %}
+            <li class="list-group-item">
+                <b>Категория: </b>
+                <a href="{% url 'category' todos.category.pk %}">{{ todos.category }}</a>
+            </li>
+        {% endif %}
+    </ul>
+    <div class="card-body">
+        <a href="{% url 'todo_detail' todos.pk %}" class="card-link">Подробнее</a>
+
+    </div>
+</div>
